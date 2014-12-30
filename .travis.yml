@@ -9,11 +9,12 @@ before_install:
 install:
   # Install Ansible.
   - pip install ansible
-  - sudo ansible-galaxy install zzet.rbenv
-  - sudo ansible-galaxy install mortik.nginx-rails
 
   # Add ansible.cfg to pick up roles path.
-  # - "printf '[defaults]\nroles_path = ../' > ansible.cfg"
+  - "printf '[defaults]\nroles_path = ../' > ansible.cfg"
+
+  - ansible-galaxy install zzet.rbenv
+  - ansible-galaxy install mortik.nginx-rails
 
 before_script:
   - cp vars.example.yml vars.yml
