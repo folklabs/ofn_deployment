@@ -11,7 +11,9 @@ install:
   - pip install ansible
 
   # Add ansible.cfg to pick up roles path.
-  - "printf '[defaults]\nroles_path = ../' > ansible.cfg"
+  # - "printf '[defaults]\nroles_path = ../' > ansible.cfg"
+  - printf '[defaults]' > ansible.cfg
+  - printf 'roles_path = ../' >> ansible.cfg
 
   - ansible-galaxy install zzet.rbenv
   - ansible-galaxy install mortik.nginx-rails
