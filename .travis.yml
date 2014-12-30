@@ -11,10 +11,10 @@ install:
   - pip install ansible
 
   # Add ansible.cfg to pick up roles path.
-  # - "printf '[defaults]\nroles_path = ../' > ansible.cfg"
   - printf '[defaults]\n' > ansible.cfg
   - printf 'roles_path = ../' >> ansible.cfg
 
+  # Add extra ansible role dependencies
   - ansible-galaxy install zzet.rbenv
   - ansible-galaxy install mortik.nginx-rails
 
@@ -22,6 +22,6 @@ before_script:
   - cp vars.example.yml vars.yml
 
 script:
-  # We'll add some commands to test the role here.
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
+  - ansible-playbook -i tests/inventory install.yml
 

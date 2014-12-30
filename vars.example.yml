@@ -26,8 +26,10 @@
 # We use 'vagrant' as the user for vagrant boxes and  otherwise use 'ubuntu' as
 # the user.  'ubuntu' is a common default user on systems where the user is
 # already set up.  (Be sure to replace the password with something strong!)
-user: vagrant #ubuntu
-user_pass: vagrant #ubuntu
+user: ubuntu
+user_pass: ubuntu
+# user: vagrant
+# user_pass: vagrant
 
 
 # Connecting to the server
@@ -52,8 +54,8 @@ ssh_pubkey: "{{ lookup('file', '~/.ssh/ofn_rsa.pub') }}"
 country_code: AU
 locale: en
 language: en_AU.UTF-8
-timezone: London
-checkout_zone: Europe
+timezone: Melbourne
+checkout_zone: Australia
 # Set the language pack to download
 language_packages:
   - language-pack-en-base
@@ -62,7 +64,7 @@ language_packages:
 #   domain - the domain name for the OFN system. Used by nginx. Ex: openfoodnetwork.co.uk
 #   Do not include "http://www." or "http://" or "https://" or "https://www" etc.
 #   Can be replaced with an IP address during development or testing.
-domain: openfoodnetwork.xxx
+domain: openfoodnetwork.org.au
 
 # Secret Token
 # This is required to verify session. It must me 30 characters and random. This
