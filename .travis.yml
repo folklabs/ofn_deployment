@@ -12,7 +12,7 @@ install:
 
   # Add ansible.cfg to pick up roles path.
   # - "printf '[defaults]\nroles_path = ../' > ansible.cfg"
-  - printf '[defaults]' > ansible.cfg
+  - printf '[defaults]\n' > ansible.cfg
   - printf 'roles_path = ../' >> ansible.cfg
 
   - ansible-galaxy install zzet.rbenv
