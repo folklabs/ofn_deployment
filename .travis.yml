@@ -20,6 +20,7 @@ install:
 
 before_script:
   - cp vars.example.yml vars.yml
+  - echo 'StrictHostKeyChecking no' >> ~/.ssh/config
 
 script:
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
