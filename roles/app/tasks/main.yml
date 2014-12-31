@@ -24,7 +24,6 @@
     - { src: "post-receive.j2", dest: "{{ config_path }}/post-receive" }
     - { src: "postgresql.yml.j2", dest: "{{ config_path }}/database.yml" }
     - { src: "seed.sh.j2", dest: "{{ config_path }}/seed.sh" }
-    - { src: "secret_token.rb.j2", dest: "{{ config_path }}/secret_token.rb" }
     - { src: "application.yml.j2", dest: "{{ config_path }}/application.yml" }
   tags: app_templates
 
@@ -44,6 +43,10 @@
 # This is a temporary solution to having hard coded Australian data in the repo,
 # without adding a fork that does the same thing for elsewhere. So we just copy over the files,
 # or not if you don't need to.
+
+- name: get i10n repo
+  git: repo={{ i10n_repo }} dest={{ shared_path }}/i10n force=yes
+  tags: i10n
 
 - name: copy optional files
   copy: src={{ item.src }} dest={{ item.dest }} owner={{ user }} mode=775 force=yes

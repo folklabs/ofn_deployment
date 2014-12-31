@@ -32,7 +32,6 @@
     - { src: "{{ config_path }}/states.yml", dest: "{{ build_path }}/db/default/spree/states.yml" }
     - { src: "{{ config_path }}/suburb_seeds.rb", dest: "{{ build_path }}/db/suburb_seeds.rb" }
     - { src: "{{ config_path }}/countries.yml", dest: "{{ build_path }}/db/default/spree/countries.yml" }
-    - { src: "{{ config_path }}/secret_token.rb", dest: "{{ build_path }}/config/initializers/secret_token.rb" }
     - { src: "{{ config_path }}/application.yml", dest: "{{ build_path }}/config/application.yml" }
   tags: symlink
 
