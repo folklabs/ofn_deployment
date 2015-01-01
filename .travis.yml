@@ -23,5 +23,6 @@ before_script:
 
 script:
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
-  - ansible-playbook -i tests/inventory install.yml --connection=local -e user=travis -e pg_version=9.1
+  - ansible-playbook -i tests/inventory provision.yml --connection=local -e user=travis -e pg_version=9.1
+  - ansible-playbook -i tests/inventory deploy.yml --connection=local -e user=travis -e pg_version=9.1
 
