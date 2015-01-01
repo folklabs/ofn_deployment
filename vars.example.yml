@@ -79,8 +79,10 @@ secret_token: 6d784d49173d0ec820f20cfce151717bd12570e9d261460e9d3c295b90c1fd81e3
 # set to https and that you have SSLcertificate files ('ssl.crt' and'ssl.key').
 # Put these SSL certificate files in the /files directory so that the ansible
 # scripts can find them and install them as necessary.
-rails_env: development # production, staging, development or test.
-protocol: http # http or https
+# production, staging, development or test.
+rails_env: test
+# http or https
+protocol: http
 
 
 # Git repository and tag to use
