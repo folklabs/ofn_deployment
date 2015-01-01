@@ -7,7 +7,6 @@
     - postgresql-{{ pg_version }}
     - postgresql-client-{{ pg_version }}
     - postgresql-contrib-{{ pg_version }}
-  when: pg_install
 
 - name: create db user
   sudo: yes
