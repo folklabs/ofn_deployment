@@ -62,6 +62,7 @@
     LANG: "{{ language }}"
     LC_ALL: "{{ language }}"
     LC_COLLATE: "{{ language }}"
+  register: result
   until: result.stdout.find("Connection timed out") == -1
   retries: 3
   tags: bundle_app
