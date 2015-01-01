@@ -62,6 +62,8 @@
     LANG: "{{ language }}"
     LC_ALL: "{{ language }}"
     LC_COLLATE: "{{ language }}"
+  until: result.stdout.find("Connection timed out") == -1
+  retries: 3
   tags: bundle_app
   notify:
     - precompile assets
