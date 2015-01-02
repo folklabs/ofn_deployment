@@ -16,11 +16,11 @@
 - debug: var=d_setup
   tags: setup
 
-- command: type bundle
-  register: d_type
+- command: which bundle
+  register: d_which
   tags: dd
 
-- debug: var=d_type
+- debug: var=d_which
   tags: dd
 
 - command: gem list
