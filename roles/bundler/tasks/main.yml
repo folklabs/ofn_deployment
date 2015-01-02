@@ -12,15 +12,15 @@
 - command: type bundle
   register: d_type
 
-- echo: var=d_type
+- debug: var=d_type
 
 - command: gem list
   register: d_gem_list
 
-- echo: var=d_gem_list
+- debug: var=d_gem_list
 
 - command: gem env
   register: d_gem_env
 
-- echo: var=d_gem_env
+- debug: var=d_gem_env
 
