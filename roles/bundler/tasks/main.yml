@@ -1,18 +1,22 @@
 --- # Bundler - here separeately as it needs to load after the rbenv role.
 
+- shell: ruby --version
+  register: debug
+- debug: var=debug
+
+- shell: rbenv versions
+  register: debug
+- debug: var=debug
+
+- command: bash -lc "rbenv versions"
+  register: debug
+- debug: var=debug
+
 - name: install bundler
   # This needs to be run inside a bash shell to initialise rbenv, might be doable with shell command somehow...
   # See http://stackoverflow.com/questions/22115936/install-bundler-gem-using-ansible for more info.
   # Alternately rbenv could be set in environment variables somehow?
   command: bash -lc "gem install bundler  --no-ri --no-rdoc"
-
-- command: ruby --version
-  register: debug
-- debug: var=debug
-
-- command: rbenv versions
-  register: debug
-- debug: var=debug
 
 - name: reload rbenv
   command: bash -lc "rbenv rehash"
