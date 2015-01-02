@@ -14,16 +14,19 @@
 
 - command: which bundle
   register: d_which
+  ignore_errors: yes
 
 - debug: var=d_which
 
 - command: gem list
   register: d_gem_list
+  ignore_errors: yes
 
 - debug: var=d_gem_list
 
 - command: gem env
   register: d_gem_env
+  ignore_errors: yes
 
 - debug: var=d_gem_env
 
