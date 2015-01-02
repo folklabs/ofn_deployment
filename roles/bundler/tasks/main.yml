@@ -43,16 +43,26 @@
   tags: dd
 
 - command: gem list
-  register: d_gem_list
+  register: debug
+  tags: dd
+- debug: var=debug
   tags: dd
 
-- debug: var=d_gem_list
+- command: bash -lc "gem list"
+  register: debug
+  tags: dd
+- debug: var=debug
   tags: dd
 
 - command: gem env
-  register: d_gem_env
+  register: debug
+  tags: dd
+- debug: var=debug
   tags: dd
 
-- debug: var=d_gem_env
+- command: bash -lc "gem env"
+  register: debug
+  tags: dd
+- debug: var=debug
   tags: dd
 
