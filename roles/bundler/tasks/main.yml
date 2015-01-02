@@ -6,6 +6,14 @@
   # Alternately rbenv could be set in environment variables somehow?
   command: bash -lc "gem install bundler  --no-ri --no-rdoc"
 
+- command: ruby --version
+  register: debug
+- debug: var=debug
+
+- command: rbenv versions
+  register: debug
+- debug: var=debug
+
 - name: reload rbenv
   command: bash -lc "rbenv rehash"
 
