@@ -9,18 +9,31 @@
 - name: reload rbenv
   command: bash -lc "rbenv rehash"
 
+- setup:
+  register: d_setup
+  tags: setup
+
+- debug: var=d_setup
+  tags: setup
+
 - command: type bundle
   register: d_type
+  tags: dd
 
 - debug: var=d_type
+  tags: dd
 
 - command: gem list
   register: d_gem_list
+  tags: dd
 
 - debug: var=d_gem_list
+  tags: dd
 
 - command: gem env
   register: d_gem_env
+  tags: dd
 
 - debug: var=d_gem_env
+  tags: dd
 
