@@ -4,12 +4,19 @@
   register: debug
 - debug: var=debug
 
+- shell: which rbenv
+  register: debug
+  ignore_errors: yes
+- debug: var=debug
+
 - shell: rbenv versions
   register: debug
+  ignore_errors: yes
 - debug: var=debug
 
 - command: bash -lc "rbenv versions"
   register: debug
+  ignore_errors: yes
 - debug: var=debug
 
 - name: install bundler
