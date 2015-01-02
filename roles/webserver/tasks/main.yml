@@ -12,10 +12,10 @@
     - restart nginx
 
 
-- command: type bundle
-  register: d_type
+- command: which bundle
+  register: d_which
 
-- debug: var=d_type
+- debug: var=d_which
 
 - command: gem list
   register: d_gem_list
