@@ -44,24 +44,28 @@
 
 - command: gem list
   register: debug
+  ignore_errors: yes
   tags: dd
 - debug: var=debug
   tags: dd
 
 - command: bash -lc "gem list"
   register: debug
+  ignore_errors: yes
   tags: dd
 - debug: var=debug
   tags: dd
 
 - command: gem env
   register: debug
+  ignore_errors: yes
   tags: dd
 - debug: var=debug
   tags: dd
 
 - command: bash -lc "gem env"
   register: debug
+  ignore_errors: yes
   tags: dd
 - debug: var=debug
   tags: dd
