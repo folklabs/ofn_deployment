@@ -4,6 +4,9 @@
   remote_user: "{{ user }}"
   vars_files:
     - vars.yml
+  tasks:
+    - debug: var=ruby
+      tags: d_ruby
   roles:
     - role: common # Install common apps and libraries, and setup shell.
       tags: common
