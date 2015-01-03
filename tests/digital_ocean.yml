@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  remote_user: root
+
+  vars_files:
+    - do_codes.yml
+
+  tasks:
+    - name: create digital ocean droplet
+      - digital_ocean: >
+            state=present
+            command=droplet
+            name=ofn_test_droplet
+            client_id={{ ansible_env.DO_CLIENT_ID }}
+            api_key={{ ansible_env.DO_API_KEY }}
+            size_id={{ do_sizes_512mb }}
+            region_id={{ do_regions_lon1 }}
+            image_id=6918990
+            wait_timeout=500
+        register: ofn_test_droplet
+      - debug: msg="ID is {{ ofn_test_droplet.droplet.id }}"
+      - debug: msg="IP is {{ ofn_test_droplet.droplet.ip_address }}"
+
+
