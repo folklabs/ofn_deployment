@@ -7,9 +7,9 @@ before_install:
   # - sudo apt-get update -qq
   - ls -al ~/.
   - cat ~/.bashrc
-  - sed -i 's/\[\[ -s "\$HOME\/\.rvm\/scripts\/rvm" \]\] && source "\$HOME\/\.rvm\/scripts\/rvm"//' .bashrc
-  - sed -i 's/export PATH="\$PATH:\$HOME\/\.rvm\/bin"//' .bashrc
-  - sed -i 's/export PATH="\$PATH:\$HOME\/\.rvm\/bin"//' .profile
+  - sed -i 's/\[\[ -s "\$HOME\/\.rvm\/scripts\/rvm" \]\] && source "\$HOME\/\.rvm\/scripts\/rvm"//' ~/.bashrc
+  - sed -i 's/export PATH="\$PATH:\$HOME\/\.rvm\/bin"//' ~/.bashrc
+  - sed -i 's/export PATH="\$PATH:\$HOME\/\.rvm\/bin"//' ~/.profile
   - cat ~/.profile
   - gem uninstall bundler
   - rvm uninstall ruby-1.9.3-p551
