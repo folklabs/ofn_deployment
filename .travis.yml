@@ -5,9 +5,13 @@ python: "2.7"
 before_install:
   # Make sure everything's up to date.
   # - sudo apt-get update -qq
+  - less ~/.bash_profile
   - rvm uninstall ruby-1.9.3-p551
   - rvm implode --force
   - rm -rf ~/.rvm
+  - sudo rm -rf /etc/rvm*
+  - sudo rm /etc/profile.d/rvm.sh
+  - sudo groupdel rvm
 
 install:
   # Install Ansible.
