@@ -22,20 +22,20 @@
           name=test.ofn-deploy
           client_id={{ ansible_env.DO_CLIENT_ID }}
           api_key={{ ansible_env.DO_API_KEY }}
-          size_id={{ do_sizes_512mb }}
+          size_id={{ do_sizes_1gb }}
           region_id={{ do_regions_lon1 }}
-          image_id=6918990
+          image_id={{ do_images_ubuntu_14_04_x64 }}
+          unique_name=yes
       register: ofn_test_droplet
 
     - debug: msg="ID is {{ ofn_test_droplet.droplet.id }}"
     - debug: msg="IP is {{ ofn_test_droplet.droplet.ip_address }}"
 
-    - pause: minutes=1
-
     - name: delete digital ocean droplet
       digital_ocean: >
+          id={{ ofn_test_droplet.droplet.id }}
           state=deleted
-          name=test.ofn-deploy
           client_id={{ ansible_env.DO_CLIENT_ID }}
           api_key={{ ansible_env.DO_API_KEY }}
+
 
