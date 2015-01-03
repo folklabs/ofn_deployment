@@ -6,8 +6,8 @@ before_install:
   # Make sure everything's up to date.
   # - sudo apt-get update -qq
   - ls -al ~/.
-  - less ~/.bashrc
-  - less ~/.profile
+  - cat ~/.bashrc
+  - cat ~/.profile
   - gem uninstall bundler
   - rvm uninstall ruby-1.9.3-p551
   - rvm implode --force
