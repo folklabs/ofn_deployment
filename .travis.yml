@@ -11,6 +11,8 @@ env:
 before_install:
   # Make sure everything's up to date.
   # - sudo apt-get update -qq
+  - ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+  - ls -al ~/.ssh
 
 install:
   - pip install dopy
