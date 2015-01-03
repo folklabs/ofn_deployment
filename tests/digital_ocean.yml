@@ -1,11 +1,18 @@
 ---
 - hosts: localhost
+  connection: local
   remote_user: root
 
   vars_files:
     - do_codes.yml
 
   tasks:
+    - setup:
+      register: d_setup
+      tags: setup
+    - debug: var=d_setup
+      tags: setup
+
     - name: create digital ocean droplet
       digital_ocean: >
           state=present
