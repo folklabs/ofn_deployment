@@ -13,7 +13,7 @@
   # service:
   #   name: unicorn_{{ app }}
   #   state: restarted
-  shell: bash -lc "service unicorn_{{ app }} restart"
+  shell: bash -lc "service unicorn_{{ app }} start"
   when: table_exists.stderr.find('does not exist') == -1
   # If unicorn isn't actually started yet we probably need this:
   notify: start unicorn

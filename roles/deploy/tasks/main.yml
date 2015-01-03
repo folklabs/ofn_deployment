@@ -51,14 +51,6 @@
   when: s3_bucket != "none"
   tags: symlink
 
-- name: install debugger gem
-  gem: name=debugger
-  ignore_errors: yes
-
-- name: install debugger gem 2
-  shell: gem install debugger
-  ignore_errors: yes
-
 - name: install debugger gem 3
   shell: bash -lc "gem install debugger"
   ignore_errors: yes
@@ -153,4 +145,36 @@
     - { src: "{{ config_path }}/spree.rb", dest: "{{ current_path }}/config/initializers/spree.rb" }
   tags:
     - rake
+
+- command: which bundle
+  register: debug
+  ignore_errors: yes
+- debug: var=debug
+
+- shell: bash -lc "which bundle"
+  register: debug
+  ignore_errors: yes
+- debug: var=debug
+
+- command: bash -lc "gem list"
+  register: debug
+  ignore_errors: yes
+  tags: dd
+- debug: var=debug
+  tags: dd
+
+- command: bash -lc "gem env"
+  register: debug
+  ignore_errors: yes
+  tags: dd
+- debug: var=debug
+  tags: dd
+
+- shell: ls -al ~/.
+  register: debug
+  ignore_errors: yes
+  tags: dd
+- debug: var=debug
+  tags: dd
+
 
