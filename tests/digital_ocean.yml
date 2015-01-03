@@ -29,6 +29,7 @@
           ssh_key_ids=id_rsa
       register: ofn_test_droplet
 
+    - debug: msg="Droplet is {{ ofn_test_droplet.droplet }}"
     - debug: msg="ID is {{ ofn_test_droplet.droplet.id }}"
     - debug: msg="IP is {{ ofn_test_droplet.droplet.ip_address }}"
 
