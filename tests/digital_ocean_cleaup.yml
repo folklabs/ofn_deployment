@@ -2,7 +2,6 @@
 - hosts: localhost
   connection: local
   remote_user: root
-  tags: cleanup
 
   vars:
     ansible_python_interpreter: python
