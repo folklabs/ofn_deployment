@@ -35,7 +35,7 @@
           region_id={{ do_regions_lon1 }}
           image_id={{ do_images_ubuntu_14_04_x64 }}
           unique_name=yes
-          ssh_key_ids=ofndeploy_key
+          ssh_key_ids=ofndeploy_key,pmackay,paulmack
       register: ofn_test_droplet
 
     - debug: msg="Droplet is {{ ofn_test_droplet.droplet }}"
