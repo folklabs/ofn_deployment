@@ -31,6 +31,9 @@
     - debug: msg="ID is {{ ofn_test_droplet.droplet.id }}"
     - debug: msg="IP is {{ ofn_test_droplet.droplet.ip_address }}"
 
+    - name: create droplet inventory
+      template: src=ofn_droplet_inventory.j2 dest=~/ofn_droplet_inventory
+
     - name: save droplet information
       template: src=ofn_droplet.yml.j2 dest=~/ofn_droplet.yml
 
