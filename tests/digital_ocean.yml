@@ -19,7 +19,6 @@
     - name: create digital ocean droplet
       digital_ocean: >
           state=present
-          name=test.ofn-deploy
           client_id={{ ansible_env.DO_CLIENT_ID }}
           api_key={{ ansible_env.DO_API_KEY }}
           size_id={{ do_sizes_1gb }}

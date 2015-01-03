@@ -6,6 +6,7 @@ env:
   global:
     - secure: "jOc11fDH4Gjz1jnosJKlSp8RjRkD4QGHK9y04v0KVFG+1HCOWoXvMsMacRvMkkpGI0SiA98Vw7LW3ofOeuJP88Im0lAzTtXE/IvC5yQrTMmfCDSexA3ImlDl3DDjUEethRR94guKvd0bQrxKsOjh/ZLeFE8M+fGY517trl/lxfo="
     - secure: "GY+49YUvwG87/mARqkX44quecHxWNabA51umY7mFMqZWD4LU8mC0G3N90PhLzkMtv3HRt0UnnyXMdGdYWndMZ3hahBYhw5cFFk20FMhHKhL4yNXS/tYv6nT0VqsT+h2sUvLbE/RHosWswiO297Wvt9kRcSUvQ2MsPxhtsxKjDr8="
+    - ANSIBLE_HOST_KEY_CHECKING=False
 
 before_install:
   # Make sure everything's up to date.
