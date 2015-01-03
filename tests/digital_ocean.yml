@@ -24,6 +24,9 @@
           ssh_pub_key="{{ ssh_pubkey }}"
           client_id={{ ansible_env.DO_CLIENT_ID }}
           api_key={{ ansible_env.DO_API_KEY }}
+      register: ofn_deploy_key
+
+    - debug: msg="ofn_deploy_key: {{ ofn_deploy_key }}"
 
     - name: create digital ocean droplet
       digital_ocean: >
@@ -35,7 +38,7 @@
           region_id={{ do_regions_lon1 }}
           image_id={{ do_images_ubuntu_14_04_x64 }}
           unique_name=yes
-          ssh_key_ids=ofndeploy_key,pmackay,paulmack
+          ssh_key_ids=ofndeploy_key,173555,411607
       register: ofn_test_droplet
 
     - debug: msg="Droplet is {{ ofn_test_droplet.droplet }}"
