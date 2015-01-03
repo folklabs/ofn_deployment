@@ -3,6 +3,9 @@
   connection: local
   remote_user: root
 
+  vars:
+    ansible_python_interpreter: python
+
   vars_files:
     - do_codes.yml
 
