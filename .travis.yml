@@ -12,6 +12,7 @@ before_install:
   # - sudo apt-get update -qq
 
 install:
+  - pip install dopy
   - pip install ansible
 
   # Add ansible.cfg to pick up roles path.
