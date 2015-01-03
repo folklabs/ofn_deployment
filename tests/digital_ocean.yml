@@ -7,7 +7,7 @@
 
   tasks:
     - name: create digital ocean droplet
-    - digital_ocean: >
+      digital_ocean: >
           state=present
           command=droplet
           name=ofn_test_droplet
