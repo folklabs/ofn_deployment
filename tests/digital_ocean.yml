@@ -18,7 +18,7 @@
       tags: setup
 
     - name: ensure ofndeploy_key is present
-    - digital_ocean_sshkey: >
+      digital_ocean_sshkey: >
           state=present
           name=ofndeploy_key
           ssh_pub_key={{ ofndeploy_key_pub }}
