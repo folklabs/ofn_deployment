@@ -37,23 +37,3 @@
 
 
 
-- hosts: localhost
-  connection: local
-  remote_user: root
-  tags: cleanup
-
-  vars:
-    ansible_python_interpreter: python
-
-  vars_files:
-    - ~/ofn_droplet.yml
-
-  tasks:
-    - name: delete digital ocean droplet
-      digital_ocean: >
-          id={{ ofn_test_droplet.droplet.id }}
-          state=deleted
-          client_id={{ ansible_env.DO_CLIENT_ID }}
-          api_key={{ ansible_env.DO_API_KEY }}
-
-
