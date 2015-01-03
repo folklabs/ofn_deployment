@@ -2,6 +2,7 @@
 - hosts: localhost
   connection: local
   remote_user: root
+  tags: setup
 
   vars:
     ansible_python_interpreter: python
@@ -31,6 +32,23 @@
     - debug: msg="ID is {{ ofn_test_droplet.droplet.id }}"
     - debug: msg="IP is {{ ofn_test_droplet.droplet.ip_address }}"
 
+    - name: save droplet information
+      template: src=ofn_droplet.yml.j2 dest=~/ofn_droplet.yml
+
+
+
+- hosts: localhost
+  connection: local
+  remote_user: root
+  tags: cleanup
+
+  vars:
+    ansible_python_interpreter: python
+
+  vars_files:
+    - ~/ofn_droplet.yml
+
+  tasks:
     - name: delete digital ocean droplet
       digital_ocean: >
           id={{ ofn_test_droplet.droplet.id }}

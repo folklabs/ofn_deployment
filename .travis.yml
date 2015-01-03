@@ -28,7 +28,9 @@ before_script:
 
 script:
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
-  - ansible-playbook -i tests/inventory tests/digital_ocean.yml --connection=local -e user=travis
+  - ansible-playbook -i tests/inventory tests/digital_ocean.yml --connection=local -e user=travis -tags=setup
+  - ansible-playbook -i tests/inventory tests/digital_ocean.yml --connection=local -e user=travis -tags=cleanup
+
   #- ansible-playbook -i tests/inventory provision.yml --connection=local -e user=travis -e pg_version=9.1 -vvvv
   #- ansible-playbook -i tests/inventory deploy.yml --connection=local -e user=travis -e pg_version=9.1 -vvvv
 
