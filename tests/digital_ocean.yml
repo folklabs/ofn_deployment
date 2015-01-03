@@ -21,7 +21,7 @@
       digital_ocean_sshkey: >
           state=present
           name=ofndeploy_key
-          ssh_pub_key={{ ofndeploy_key_pub }}
+          ssh_pub_key="{{ ofndeploy_key_pub }}"
           client_id={{ ansible_env.DO_CLIENT_ID }}
           api_key={{ ansible_env.DO_API_KEY }}
 
