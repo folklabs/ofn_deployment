@@ -6,12 +6,15 @@ before_install:
   # Make sure everything's up to date.
   # - sudo apt-get update -qq
   - ls -al ~/.
-  # - less ~/.bash_profile
+  - less ~/.bashrc
+  - less ~/.profile
+  - gem uninstall bundler
   - rvm uninstall ruby-1.9.3-p551
   - rvm implode --force
   - rm -rf ~/.rvm
   - sudo rm -rf /etc/rvm*
   - sudo rm /etc/profile.d/rvm.sh
+  - ls -al ~/.
 
 install:
   # Install Ansible.
