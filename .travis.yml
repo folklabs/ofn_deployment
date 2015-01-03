@@ -11,7 +11,7 @@ env:
 before_install:
   # Make sure everything's up to date.
   # - sudo apt-get update -qq
-  - ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+  - ssh-keygen -t rsa -N "" -f ~/.ssh/ofndeploy_key
   - ls -al ~/.ssh
 
 install:

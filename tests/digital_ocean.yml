@@ -5,6 +5,7 @@
 
   vars:
     ansible_python_interpreter: python
+    ofndeploy_key_pub: "{{ lookup('file', '~/.ssh/ofndeploy_key.pub') }}"
 
   vars_files:
     - do_codes.yml
@@ -16,6 +17,14 @@
     - debug: var=d_setup
       tags: setup
 
+    - name: ensure ofndeploy_key is present
+      - digital_ocean_sshkey: >
+          state=present
+          name=ofndeploy_key
+          ssh_pub_key={{ ofndeploy_key_pub }}
+          client_id={{ ansible_env.DO_CLIENT_ID }}
+          api_key={{ ansible_env.DO_API_KEY }}
+
     - name: create digital ocean droplet
       digital_ocean: >
           state=present
@@ -26,7 +35,7 @@
           region_id={{ do_regions_lon1 }}
           image_id={{ do_images_ubuntu_14_04_x64 }}
           unique_name=yes
-          ssh_key_ids=id_rsa
+          ssh_key_ids=ofndeploy_key
       register: ofn_test_droplet
 
     - debug: msg="Droplet is {{ ofn_test_droplet.droplet }}"
