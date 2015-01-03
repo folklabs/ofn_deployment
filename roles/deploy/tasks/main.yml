@@ -53,6 +53,15 @@
 
 - name: install debugger gem
   gem: name=debugger
+  ignore_errors: yes
+
+- name: install debugger gem 2
+  shell: gem install debugger
+  ignore_errors: yes
+
+- name: install debugger gem 3
+  shell: bash -lc "gem install debugger"
+  ignore_errors: yes
 
 - name: install app dependencies
   #TODO make the "--without development" part conditional on rails_env
