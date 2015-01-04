@@ -57,7 +57,8 @@
 
     - pause: minutes=1
 
-    - shell: "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@{{ ofn_test_droplet.droplet.ip_address }} 'echo hi'"
+    - shell: "ssh -v -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PasswordAuthentication=no root@{{ ofn_test_droplet.droplet.ip_address }} 'echo hi'"
+      ignore_errors: yes
 
 
 
