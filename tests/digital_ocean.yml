@@ -26,7 +26,7 @@
           api_key={{ ansible_env.DO_API_KEY }}
       register: ofn_deploy_key
 
-    - debug: msg="Deploy SSH key is {{ ofn_deploy_key.stdout }}"
+    - debug: msg="Deploy SSH key is {{ ofn_deploy_key.ssh_key }}"
       ignore_errors: yes
 
     - name: create digital ocean droplet
