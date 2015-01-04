@@ -6,7 +6,7 @@
   vars:
     ansible_python_interpreter: python
     ssh_pubkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-    timestamp: "{{ lookup('pipe', 'date +%Y%m%d%H%M%S' }}"
+    timestamp: "{{ lookup('pipe', 'date +%Y%m%d%H%M%S') }}"
 
   vars_files:
     - do_codes.yml
