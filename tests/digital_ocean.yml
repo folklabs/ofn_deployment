@@ -55,7 +55,7 @@
 
     # - ping:
 
-    # - pause: minutes=1
+    - pause: seconds=20
 
     # - shell: cat .ssh/known_hosts
 
