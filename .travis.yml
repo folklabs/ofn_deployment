@@ -13,6 +13,9 @@ before_install:
   # - sudo apt-get update -qq
   - ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
   - ls -al ~/.ssh
+  - ssh-add -l
+  - ssh-add ~/.ssh/id_rsa
+  - ssh-add -l
 
 install:
   - pip install dopy
@@ -33,7 +36,7 @@ script:
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
   - ansible-playbook -i tests/inventory tests/digital_ocean.yml --connection=local -e user=travis -vvvv
   - ansible-playbook -i ~/ofn_deployment_inventory user.yml -vvvv -e 'host_key_checking=False'
-  - ansible-playbook -i ~/ofn_deployment_inventory provision.yml -vvvv -e 'host_key_checking=False'
+  # - ansible-playbook -i ~/ofn_deployment_inventory provision.yml -vvvv -e 'host_key_checking=False'
   #- ansible-playbook -i tests/inventory tests/digital_ocean_cleanup.yml --connection=local -e user=travis
 
 
