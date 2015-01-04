@@ -53,13 +53,13 @@
     - name: save droplet information
       template: src=ofn_droplet.yml.j2 dest=~/ofn_droplet.yml
 
-    - ping:
+    # - ping:
 
     # - pause: minutes=1
 
     # - shell: cat .ssh/known_hosts
 
-    - shell: "ssh -v -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PasswordAuthentication=no root@{{ ofn_test_droplet.droplet.ip_address }} 'echo hi'"
+    - shell: "ssh -vv -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PasswordAuthentication=no root@{{ ofn_test_droplet.droplet.ip_address }} 'echo hi'"
       ignore_errors: yes
 
 
