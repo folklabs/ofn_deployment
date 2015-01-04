@@ -53,5 +53,10 @@
     - name: save droplet information
       template: src=ofn_droplet.yml.j2 dest=~/ofn_droplet.yml
 
+    - ping:
+
+    - shell: "ssh root@{{ ofn_test_droplet.droplet.ip_address }} 'echo hi'"
+
+    - pause: minutes=1
 
 
