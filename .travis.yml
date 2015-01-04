@@ -14,7 +14,7 @@ before_install:
   - ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
   - ls -al ~/.ssh
   - eval `ssh-agent -s`
-  - ssh-add -l
+  #- ssh-add -l
   - ssh-add ~/.ssh/id_rsa
   - ssh-add -l
 
