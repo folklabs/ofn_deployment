@@ -53,7 +53,8 @@
     - name: save droplet information
       template: src=ofn_droplet.yml.j2 dest=~/ofn_droplet.yml
 
-    # - ping:
+    - lineinfile: 'dest=vars.yml regexp="domain: 127\.0\.0\.1" line="domain: {{ ofn_test_droplet.droplet.ip_address }}"'
+      tags: set_ip
 
     - pause: seconds=20
 
