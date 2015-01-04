@@ -55,7 +55,7 @@
 
     - ping:
 
-    - shell: "ssh root@{{ ofn_test_droplet.droplet.ip_address }} 'echo hi'"
+    - shell: "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@{{ ofn_test_droplet.droplet.ip_address }} 'echo hi'"
 
     - pause: minutes=1
 
