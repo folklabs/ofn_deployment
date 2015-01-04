@@ -6,6 +6,7 @@
   vars:
     ansible_python_interpreter: python
     ssh_pubkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    timestamp: "{{ lookup('pipe', 'date +%Y%m%d%H%M%S' }}"
 
   vars_files:
     - do_codes.yml
@@ -32,7 +33,7 @@
     - name: create digital ocean droplet
       digital_ocean: >
           state=present
-          name=test.ofn-deploy
+          name=test.ofn-deploy.{{ timestamp }}
           client_id={{ ansible_env.DO_CLIENT_ID }}
           api_key={{ ansible_env.DO_API_KEY }}
           size_id={{ do_sizes_1gb }}
