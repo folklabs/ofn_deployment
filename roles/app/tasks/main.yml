@@ -48,9 +48,6 @@
   git: repo={{ i10n_repo }} dest={{ shared_path }}/i10n force=yes
   tags: i10n
 
-- shell: ls -al {{ shared_path }}
-- shell: ls -al {{ shared_path }}/i10n
-
 - name: copy optional files
   shell: cp -v {{ item.src }} {{ item.dest }}
   with_items:
