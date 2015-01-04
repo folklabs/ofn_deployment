@@ -57,7 +57,7 @@
 
     # - pause: minutes=1
 
-    - shell: cat .ssh/known_hosts
+    # - shell: cat .ssh/known_hosts
 
     - shell: "ssh -v -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PasswordAuthentication=no root@{{ ofn_test_droplet.droplet.ip_address }} 'echo hi'"
       ignore_errors: yes
