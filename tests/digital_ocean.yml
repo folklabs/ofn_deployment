@@ -21,7 +21,7 @@
     - name: ensure ofndeploy_key is present
       digital_ocean_sshkey: >
           state=present
-          name=ofndeploy_key
+          name=ofndeploy_key.{{ timestamp }}
           ssh_pub_key="{{ ssh_pubkey }}"
           client_id={{ ansible_env.DO_CLIENT_ID }}
           api_key={{ ansible_env.DO_API_KEY }}
