@@ -49,10 +49,10 @@
     - debug: msg="IP is {{ ofn_test_droplet.droplet.ip_address }}"
 
     - name: create droplet inventory
-      template: src=ofn_deployment_inventory.j2 dest=~/ofn_deployment_inventory
+      template: src=ofn_deployment_inventory.j2 dest=../ofn_deployment_inventory
 
     - name: save droplet information
-      template: src=ofn_deployment_vars.yml.j2 dest=~/ofn_deployment_vars.yml
+      template: src=ofn_deployment_vars.yml.j2 dest=../ofn_deployment_vars.yml
 
     - name: set droplet IP address as domain
       lineinfile: 'dest=../vars.yml regexp="domain: 127\.0\.0\.1" line="domain: {{ ofn_test_droplet.droplet.ip_address }}"'

@@ -8,7 +8,7 @@
     ansible_python_interpreter: python
 
   vars_files:
-    - ~/ofn_deployment_vars.yml
+    - ../ofn_deployment_vars.yml
 
   tasks:
     - name: delete digital ocean droplet
@@ -32,4 +32,4 @@
 
     - name: verify content on the homepage
       fail: msg="Homepage did not contain openfoodnetwork.org"
-      when: 'openfoodnetwork.org' not in "{{ ofn_homepage.content }}"
+      when: 'openfoodnetwork.org not in "{{ ofn_homepage.content }}"'

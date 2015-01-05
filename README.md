@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/folklabs/ofn_deployment.svg?branch=travis-digitalocean)](https://travis-ci.org/folklabs/ofn_deployment)
+
 Deploying Open Food Network
 ===========================
 
