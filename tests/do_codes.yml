@@ -1,3 +1,5 @@
+# A list of ansible variables for Digital Ocean codes
+
 # regions
 do_regions_sfo1: 3
 do_regions_nyc2: 4

@@ -9,21 +9,18 @@ env:
     - ANSIBLE_HOST_KEY_CHECKING=False
 
 before_install:
-  # Make sure everything's up to date.
   # - sudo apt-get update -qq
   - ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
   - ls -al ~/.ssh
   - eval `ssh-agent -s`
-  #- ssh-add -l
   - ssh-add ~/.ssh/id_rsa
   - ssh-add -l
-  - cat ~/.ssh/id_rsa
 
 install:
   - pip install dopy
   - pip install ansible
 
-  # Add ansible.cfg to pick up roles path.
+  # Add ansible.cfg to set a local roles path, so galaxy modules installed there
   - printf '[defaults]\n' > ansible.cfg
   - printf 'roles_path = ../' >> ansible.cfg
 
@@ -36,12 +33,10 @@ before_script:
 
 script:
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
-  - ansible-playbook -i tests/inventory tests/digital_ocean.yml --connection=local -e user=travis -vvvv
-  - ansible-playbook -i ~/ofn_deployment_inventory user.yml -vvvv
-  - ansible-playbook -i ~/ofn_deployment_inventory provision.yml -vvvv
-  - ansible-playbook -i ~/ofn_deployment_inventory deploy.yml -vvvv
-  # - ansible-playbook -i tests/inventory tests/digital_ocean_cleanup.yml --connection=local -e user=travis
+  - ansible-playbook -i tests/inventory tests/setup.yml -e user=travis -v
+  - ansible-playbook -i ~/ofn_deployment_inventory user.yml -v
+  - ansible-playbook -i ~/ofn_deployment_inventory provision.yml -v
+  - ansible-playbook -i ~/ofn_deployment_inventory deploy.yml -v
+  - ansible-playbook -i tests/inventory tests/cleanup.yml -e user=travis -v
 
-
-  #- ansible-playbook -i tests/inventory deploy.yml --connection=local -e user=travis -e pg_version=9.1 -vvvv
 

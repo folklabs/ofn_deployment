@@ -4,6 +4,7 @@
   remote_user: root
 
   vars:
+    # Hack to prevent problem with ansible not finding dopy library
     ansible_python_interpreter: python
     ssh_pubkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
     timestamp: "{{ lookup('pipe', 'date +%Y%m%d%H%M%S') }}"
@@ -12,11 +13,11 @@
     - do_codes.yml
 
   tasks:
-    - setup:
-      register: d_setup
-      tags: setup
-    - debug: var=d_setup
-      tags: setup
+    # - setup:
+    #   register: d_setup
+    #   tags: setup
+    # - debug: var=d_setup
+    #   tags: setup
 
     - name: ensure ofndeploy_key is present
       digital_ocean_sshkey: >
@@ -51,9 +52,10 @@
       template: src=ofn_deployment_inventory.j2 dest=~/ofn_deployment_inventory
 
     - name: save droplet information
-      template: src=ofn_droplet.yml.j2 dest=~/ofn_droplet.yml
+      template: src=ofn_deployment_vars.yml.j2 dest=~/ofn_deployment_vars.yml
 
-    - lineinfile: 'dest=../vars.yml regexp="domain: 127\.0\.0\.1" line="domain: {{ ofn_test_droplet.droplet.ip_address }}"'
+    - name: set droplet IP address as domain
+      lineinfile: 'dest=../vars.yml regexp="domain: 127\.0\.0\.1" line="domain: {{ ofn_test_droplet.droplet.ip_address }}"'
       tags: set_ip
 
     - pause: seconds=20
