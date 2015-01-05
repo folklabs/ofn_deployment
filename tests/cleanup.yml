@@ -22,6 +22,7 @@
       digital_ocean_sshkey: >
           state=absent
           id={{ ofn_deployment_key_id }}
+          name={{ ofn_deployment_key_name }}
           client_id={{ ansible_env.DO_CLIENT_ID }}
           api_key={{ ansible_env.DO_API_KEY }}
 

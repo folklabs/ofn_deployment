@@ -227,10 +227,7 @@ This doesn't clean up old backups automatically yet.
 
 ## Credits
 
-Written by Rafael Schouten.
-
-Contributors:
-
-* Paul Mackay
-* Ashley Englund
+* Rafael Schouten (https://github.com/rafaqz)
+* Paul Mackay (https://github.com/pmackay)
+* Ashley Englund (https://github.com/weedySeaDragon)
 
