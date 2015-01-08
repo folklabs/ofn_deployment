@@ -18,6 +18,7 @@ before_install:
 
 install:
   - pip install dopy
+  - pip install httplib2
   - pip install ansible
 
   # Add ansible.cfg to set a local roles path, so galaxy modules installed there
