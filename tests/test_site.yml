@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  connection: local
+  remote_user: root
+
+  vars:
+    # Hack to prevent problem with ansible not finding dopy library
+    ansible_python_interpreter: python
+
+  vars_files:
+    - ../ofn_deployment_vars.yml
+
+  tasks:
+    - name: test that OFN homepage is accessible
+      uri: url=http://{{ ofn_deployment_droplet_ip_address }} return_content=yes timeout=300
+      register: ofn_homepage
+
+    - name: verify content on the homepage
+      fail: msg="Homepage did not contain openfoodnetwork.org"
+      when: 'openfoodnetwork.org not in "{{ ofn_homepage.content }}"'
+
+

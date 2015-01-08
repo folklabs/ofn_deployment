@@ -11,14 +11,6 @@
     - ../ofn_deployment_vars.yml
 
   tasks:
-    - name: test that OFN homepage is accessible
-      uri: url=http://{{ ofn_deployment_droplet_ip_address }} return_content=yes timeout=300
-      register: ofn_homepage
-
-    - name: verify content on the homepage
-      fail: msg="Homepage did not contain openfoodnetwork.org"
-      when: 'openfoodnetwork.org not in "{{ ofn_homepage.content }}"'
-
     - name: delete digital ocean droplet
       digital_ocean: >
           id={{ ofn_deployment_droplet_id }}
