@@ -6,7 +6,7 @@
   vars:
     # Hack to prevent problem with ansible not finding dopy library
     ansible_python_interpreter: python
-    ssh_pubkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    ssh_pubkey: "{{ lookup('file', '~/.ssh/ofn_rsa.pub') }}"
     timestamp: "{{ lookup('pipe', 'date +%Y%m%d%H%M%S') }}"
 
   vars_files:

@@ -39,7 +39,7 @@ user_pass: ubuntu
 # The Ansible scripts will put it up onto the proper location on the OFN server.
 # This might be used by hosts (like DigitalOcean) that require or encourage you
 # to connect using SSH instead of just passwords.
-ssh_pubkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+ssh_pubkey: "{{ lookup('file', '~/.ssh/ofn_rsa.pub') }}"
 
 
 # Language/Locale info
