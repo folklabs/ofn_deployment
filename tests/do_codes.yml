@@ -43,7 +43,7 @@ do_images_coreos_stable: 6886342
 do_images_ubuntu_14_04_x32: 6918735
 do_images_ubuntu_14_04_x64: 6918990
 do_images_centos_7_0_x64: 7053293
-do_images_ubuntu_14_10_x64: 7111343
+do_images_ubuntu_14_10_x64: 9801954
 do_images_ubuntu_14_10_x32: 7111572
 do_images_ruby_on_rails: 6376601
 do_images_wordpress: 6423475
