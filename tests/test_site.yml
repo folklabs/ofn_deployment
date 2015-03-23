@@ -12,7 +12,7 @@
 
   tasks:
     # - command: "phantomjs --ssl-protocol=any tests/getpage.js {{ ofn_deployment_droplet_ip_address }}"
-    - command: "phantomjs --ssl-protocol=any tests/getpage.js https://openfoodnetwork.org.au"
+    - command: "phantomjs --ssl-protocol=any getpage.js https://openfoodnetwork.org.au"
 
     # - name: test that OFN homepage is accessible
     #   uri: url=https://{{ ofn_deployment_droplet_ip_address }} return_content=yes timeout=300
