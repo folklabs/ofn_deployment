@@ -31,9 +31,9 @@ Install Ansible by following the documentation on [the official Ansible site.]  
 ### Additional Ansible modules
 You will need to install the following additional Ansible modules before running the OFN provisioning playbooks: `zzet.rbenv` and `mortik.nginx-rails`.  Install by running:
 
-`ansible-galaxy install zzet.rbenv`
+`ansible-galaxy install zzet.rbenv,1.3.0`
 
-`ansible-galaxy install mortik.nginx-rails`
+`ansible-galaxy install mortik.nginx-rails,v0.3`
 
 ### Seed data
 
