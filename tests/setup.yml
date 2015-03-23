@@ -58,10 +58,10 @@
       lineinfile: 'dest=../vars.yml regexp="domain: 127\.0\.0\.1" line="domain: {{ ofn_test_droplet.droplet.ip_address }}"'
       tags: set_ip
 
-    - pause: seconds=20
+    - pause: seconds=40
 
-    # - shell: "ssh -vv -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PasswordAuthentication=no -i ~/.ssh/id_rsa root@{{ ofn_test_droplet.droplet.ip_address }} 'echo hi'"
-    #   ignore_errors: yes
+    - shell: "ssh -vv -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PasswordAuthentication=no -i ~/.ssh/id_rsa root@{{ ofn_test_droplet.droplet.ip_address }} 'echo hi'"
+      ignore_errors: yes
 
 
 
