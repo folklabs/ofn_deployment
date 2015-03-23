@@ -11,7 +11,7 @@
     - ../ofn_deployment_vars.yml
 
   tasks:
-    - command: "phantomjs --ssl-protocol=any getpage.js {{ ofn_deployment_droplet_ip_address }}"
+    - command: "phantomjs --ssl-protocol=any getpage.js http://{{ ofn_deployment_droplet_ip_address }}"
 
     # - name: test that OFN homepage is accessible
     #   uri: url=https://{{ ofn_deployment_droplet_ip_address }} return_content=yes timeout=300
