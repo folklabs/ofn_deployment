@@ -18,9 +18,9 @@
       uri: url=http://{{ ofn_deployment_droplet_ip_address }} return_content=yes timeout=300
       register: ofn_homepage
 
-    - debug: msg={{ ofn_homepage }}
-    # - name: verify content on the homepage
-    #   fail: msg="Homepage did not contain openfoodnetwork.org"
-    #   when: 'openfoodnetwork.org not in "{{ ofn_homepage.content }}"'
+    # - debug: msg={{ ofn_homepage }}
+    - name: verify content on the homepage
+      fail: msg="Homepage did not contain openfoodnetwork.org"
+      when: 'openfoodnetwork.org' not in "{{ ofn_homepage.content }}"
 
 
