@@ -7,11 +7,12 @@
     # Hack to prevent problem with ansible not finding dopy library
     ansible_python_interpreter: python
 
-  vars_files:
-    - ../ofn_deployment_vars.yml
+  # vars_files:
+  #   - ../ofn_deployment_vars.yml
 
   tasks:
-    - command: "phantomjs --ssl-protocol=any tests/getpage.js {{ ofn_deployment_droplet_ip_address }}"
+    # - command: "phantomjs --ssl-protocol=any tests/getpage.js {{ ofn_deployment_droplet_ip_address }}"
+    - command: "phantomjs --ssl-protocol=any tests/getpage.js https://openfoodnetwork.org.au"
 
     # - name: test that OFN homepage is accessible
     #   uri: url=https://{{ ofn_deployment_droplet_ip_address }} return_content=yes timeout=300

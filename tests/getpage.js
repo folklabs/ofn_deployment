@@ -13,6 +13,9 @@ page.open(url, function (status) {
     return document.title;
   });
   console.log('Page title is: ' + title);
+  if (title.indexOf('Open Food Network') == -1) {
+    phantom.exit(1);
+  }
   phantom.exit();
 });
 
