@@ -33,12 +33,13 @@ before_script:
   - cp vars.example.yml vars.yml
 
 script:
-  - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
-  - ansible-playbook -i tests/inventory tests/setup.yml -e user=travis -vvvv
-  - ansible-playbook -i ofn_deployment_inventory user.yml -vvvv
-  - ansible-playbook -i ofn_deployment_inventory provision.yml -v
-  - ansible-playbook -i ofn_deployment_inventory deploy.yml -v
-  - ansible-playbook -i tests/inventory tests/test_site.yml -e user=travis -vvvv
-  - ansible-playbook -i tests/inventory tests/cleanup.yml -e user=travis -vvvv
+  - phantomjs --ssl-protocol=any tests/getpage.js
+  # - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
+  # - ansible-playbook -i tests/inventory tests/setup.yml -e user=travis -vvvv
+  # - ansible-playbook -i ofn_deployment_inventory user.yml -vvvv
+  # - ansible-playbook -i ofn_deployment_inventory provision.yml -v
+  # - ansible-playbook -i ofn_deployment_inventory deploy.yml -v
+  # - ansible-playbook -i tests/inventory tests/test_site.yml -e user=travis -vvvv
+  # - ansible-playbook -i tests/inventory tests/cleanup.yml -e user=travis -vvvv
 
 
