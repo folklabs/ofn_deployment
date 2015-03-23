@@ -26,7 +26,7 @@ install:
   - printf 'roles_path = ../' >> ansible.cfg
 
   # Add extra ansible role dependencies
-  - ansible-galaxy install zzet.rbenv
+  - ansible-galaxy install zzet.rbenv,v1.3.0
   - ansible-galaxy install mortik.nginx-rails
 
 before_script:
