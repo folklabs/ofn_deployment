@@ -21,6 +21,6 @@
     # - debug: msg={{ ofn_homepage }}
     - name: verify content on the homepage
       fail: msg="Homepage did not contain openfoodnetwork.org"
-      when: 'openfoodnetwork.org' not in "{{ ofn_homepage.content }}"
+      when: "'openfoodnetwork.org' not in {{ ofn_homepage.content }}"
 
 
