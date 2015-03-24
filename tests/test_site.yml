@@ -11,6 +11,9 @@
     - ../ofn_deployment_vars.yml
 
   tasks:
+    - command: "phantomjs getpage.js http://{{ ofn_deployment_droplet_ip_address }}"
+      ignore_errors: yes
+
     # Attempt to get page to 'warm it up'.
     - name: test that OFN homepage is accessible
       uri:
