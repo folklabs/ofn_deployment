@@ -11,8 +11,8 @@
     - ../ofn_deployment_vars.yml
 
   tasks:
-    - command: "phantomjs getpage.js http://{{ ofn_deployment_droplet_ip_address }}"
-      ignore_errors: yes
+    # - command: "phantomjs getpage.js http://{{ ofn_deployment_droplet_ip_address }}"
+    #   ignore_errors: yes
 
     - name: test that OFN homepage is accessible
       uri:
@@ -37,6 +37,6 @@
     - name: verify content on the homepage
       fail: msg="Homepage did not contain 'Open Food Network'"
       # when: "'openfoodnetwork.org' not in {{ ofn_homepage.content }}"
-      when: not ofn_homepage.content | match('Open Food Network')
+      when: not ofn_homepage.content | search('Open Food Network')
 
 
