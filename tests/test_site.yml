@@ -20,6 +20,7 @@
         return_content=yes
         timeout=300
         follow_redirects=all
+      ignore_errors: yes
       # register: ofn_homepage
 
     - pause: seconds=30
